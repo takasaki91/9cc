@@ -11,6 +11,11 @@ int main(int argc, char **argv) {
         return 1;
     }
 
+    if(strcmp(argv[1],"-test") == 0) {
+        printf("test\n");
+        runtest();
+        return 0;
+    }
     tokenize(argv[1]);
     code[0] = expr();
 

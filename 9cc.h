@@ -2,6 +2,15 @@
 #include<stdlib.h>
 #include<ctype.h>
 #include<string.h>
+typedef struct {
+    void **data;
+    int capacity;
+    int len;
+} Vector;
+typedef struct {
+    Vector *keys;
+    Vector *vals;
+} Map;
 enum {
     TK_NUM = 256,
     TK_IDENT,
@@ -34,3 +43,11 @@ Node *mul();
 Node *term();
 void error(int i);
 void gem_lval(Node *node);
+
+Vector *new_vector();
+void *map_get(Map *map, char *key);
+void map_put(Map *map, char *key, void *val);
+void vec_push(Vector *vec, void *elem);
+Map *new_map();
+
+void runtest();
