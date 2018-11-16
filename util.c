@@ -10,7 +10,7 @@ Vector *new_vector() {
 void vec_push(Vector *vec, void *elem) {
     if(vec->capacity == vec->len){
         vec->capacity *= 2;
-        vec->data = realloc(vec->data, vec->capacity);
+        vec->data = realloc(vec->data, sizeof(void *) * vec->capacity);
     }
     vec->data[vec->len++] = elem;
 }
